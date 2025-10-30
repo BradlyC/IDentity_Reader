@@ -4,26 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UserIDentifier</title>
-    <link rel="stylesheet" href="/incdex.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
      <div id="System">
-         <h1 id="tittle">Identify</h1>
+         <h1 id="tittle">ID Information Extractor</h1>
              
-               <label for="user-input">Enter Your ID :</label>
-                 <input type="text" id="user-input"><br><br>
+               <label for="user-input" id="userIDlabel">ID Number</label><br><br>
+                 <input type="text" id="user-input" placeholder="enter your id here"><br><br>
                    
+                           <button id="submitButton"><b>Extract</b></button><br>
+                              <button id="resetBtn">Reset</button>
+                           <label for=""></label>
 
-                           <button id="submitButton">Get Information</button>
-                    <h3>USer info1</h3>
-                    <h3>>USer info1</h3>
-                     <h3>>USer info1</h3>
-                    <h3>>USer info1</h3>
-                     <h3>USer info1</h3>
-                    <h3>>USer info1</h3>
+                     <div id="OutputContent">
+                    <h4 id="nonValid"></h4>
+                       <p>Gender :</p>
+                    <h4 id="gender-Identity"></h4>
+                       <p>CitizenShip :</p>
+                     <h3 id="citizen-Ship"></h3>
+                      <p>Birth date :</p>
+                    <h3 id="dateOf-Birth"></h3>
+                     <h3></h3>
+                    <h3></h3>
+                    </div>
 
      </div>
 
-    <script src="/index.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

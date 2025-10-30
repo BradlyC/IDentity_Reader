@@ -1,82 +1,82 @@
-let userInput = document.querySelector(`#user-input`)
-let getInforBtn = document.querySelector(`#submitButton`)
+const userInput = document.querySelector(`#user-input`)
+const getInforBtn = document.querySelector(`#submitButton`)
+const IdValidation = document.getElementById("nonValid")
+const genderidentint = document.getElementById("gender-Identity")
+const citizenShip = document.getElementById("citizen-Ship")
+const birthDate = document.getElementById(`dateOf-Birth`)
+const resetBtn = document.getElementById(`resetBtn`)
+
+
 let inputArray = 0
 
-/*
-let inputIteration = () =>{
-  for( let i = 0; i < inputArray.length ; i++ ){
-    console.log(` The user input is ${inputArray[i]}`)
-   }
-
-   if(inputArray.length === 13){
-       console.log("Thanbk you for entering a valid Id number")
-   }else {
-
-    console.log("Invalid Id Number")
-
-   }
-   }
-
-
-getInforBtn.addEventListener("click", function(){
- 
-    userInput = ""
-     inputArray.push(userInput)
-     console.log(inputArray)
-inputIteration()
-})
-
-
-userInput
-  // let inputAccepted = Number(userInput.value)
-*/
-function dateOfBirth(Date,Month,Year){
-    let DateOFbirth = Number(Date)
-       let BirthMonth = Number(Month)
-          let BirthYear = Number(Year)
-        
-}
 
 let citizenshipCheck = (eleventhDigit) =>{
     let conveerted2 = Number(eleventhDigit)
-        let condition2 =  conveerted2 === 0 ? "Citizen-Ship : South African": " Citizen-Ship : non- Citizen"
+        let condition2 =  conveerted2 === 0 ? " South African": "  non- Citizen"
                   console.log(condition2)
+                  citizenShip.textContent = condition2 
     }
-
-
-
-
 
 let genderCheck = (fifthDigit) =>{
     let converted = Number(fifthDigit)
     let condition = ''
-      condition = converted <= 4? 'Gender : Female' : converted >= 5 ? ' Gender: Male': ''
+      condition = converted <= 4? ' Female' : converted >= 5 ? ' Male': ''
          console.log(condition)
+         genderidentint.textContent = condition
 }
-
 
 let idValidation = (input) =>{
-    if(input.length !== 13){
-        console.log("Invalid ID number")
-    }else if(input.length === 13){
-        console.log("This is a correct Identity")
-    }else{
-        console.log("We only accept SA Identity")
-    }
-     
-}
+    
+      IdValidation.textContent = "Invalid ID number"
+}  
+//this is adate of birth extraction
+
 
 //this is a button to submit the ID
 getInforBtn.addEventListener("click", function()
 {
+     IdValidation.textContent = ""
     let inputInJS = userInput.value
     userInput.value = ""
-    console.log(`This ID is ${inputInJS.length} characters long`)
-    idValidation(inputInJS )
+    if(inputInJS.length === 13){ 
     genderCheck(inputInJS[6])
     citizenshipCheck(inputInJS[10])
-       dateOfBirth(inputInJS[0,1])
+
+    //date of birth statements
+        let firstNumber = inputInJS[0]
+          let secondNumber = inputInJS[1]
+            let thirdNumber = inputInJS[2]
+              let fourthNumber = inputInJS[3]
+                let fifthNumber = inputInJS[4]
+                  let sizthNumber = inputInJS[5]
+
+                  let sum = firstNumber+secondNumber
+                       if(sum > 25){
+                        let centuary = 19
+                            // console.log(centuary+sum)
+                             birthDate.textContent = `${fifthNumber+sizthNumber} / ${thirdNumber+fourthNumber} / ${centuary+sum}`
+                       }else if (sum <= 25){
+                        let centuary = 20
+                         //  console.log(centuary+sum)
+                                birthDate.textContent =`${fifthNumber+sizthNumber} / ${thirdNumber+fourthNumber} / ${centuary+sum}`
+                       }
+              
+                        
+                  
+         //birthDate.textContent = `${firstNumber+secondNumber} / ${thirdNumber+fourthNumber} / ${fifthNumber+sizthNumber}`
+         
+    }
+   else{
+    idValidation(inputInJS)
+   }
   
 })
 
+resetBtn.addEventListener("dblclick", function(){
 
+   citizenShip.textContent = ""
+        genderidentint.textContent = ""
+                birthDate.textContent = ""
+                   IdValidation.textContent = ""
+         
+})
